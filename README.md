@@ -26,12 +26,13 @@ Follow these steps to run this project on your laptop.
 git clone https://github.com/Deepitha123/intellina_website.git
 cd intellina_website
 
-
+```
 
 ### 2️⃣ Install all required packages
 
-
+```bash
 npm install
+```
 
 This will automatically install:
 - React
@@ -44,8 +45,9 @@ This will automatically install:
 
 ### 3️⃣ Start the development server
 
-
+```bash
 npm start
+```
 
 
 Your site will run at:
