@@ -1,0 +1,282 @@
+@import url('https://fonts.cdnfonts.com/css/benguiat');
+
+.event-desc-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.event-desc-card {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    /* Shorter radius like in Image 2 */
+    padding: 60px;
+    display: flex;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 1);
+    overflow: hidden;
+}
+
+.close-btn {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #331a1a;
+    color: #ff9999;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    background: #552a2a;
+    color: #ffffff;
+}
+
+.event-desc-layout {
+    display: flex;
+    width: 100%;
+    gap: 60px;
+}
+
+.event-desc-left {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-desc-title {
+    font-family: 'Benguiat', serif;
+    font-size: 4rem;
+    color: #ff1a1a;
+    /* Red for consistency */
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.event-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 12px 20px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    width: max-content;
+}
+
+.tab-btn.active {
+    background: #5c1a1a;
+    /* Dark red/maroon from reference */
+    color: #ffffff;
+}
+
+.tab-content {
+    color: #ff9999;
+    /* Reddish tint for readability on dark */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 60px;
+    min-height: 120px;
+}
+
+.event-desc-footer {
+    margin-top: auto;
+}
+
+.prize-worth {
+    margin-bottom: 30px;
+}
+
+.prize-worth-label {
+    font-size: 0.9rem;
+    color: #ffffff;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.prize-worth-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ff1a1a;
+}
+
+.prize-worth-value .currency {
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+
+.event-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-stylized {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 14px 40px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: max-content;
+    position: relative;
+    overflow: visible;
+}
+
+/* Stylized brackets for the buttons */
+.btn-stylized::before,
+.btn-stylized::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 100%;
+    border-top: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transition: all 0.3s ease;
+}
+
+.btn-stylized::before {
+    left: -2px;
+    top: -2px;
+    border-left: 2px solid #ffffff;
+}
+
+.btn-stylized::after {
+    right: -2px;
+    top: -2px;
+    border-right: 2px solid #ffffff;
+}
+
+.btn-stylized:hover {
+    background: rgba(255, 255, 255, 0.1);
+    letter-spacing: 3px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-stylized:hover::before,
+.btn-stylized:hover::after {
+    width: 25px;
+    border-color: #ff1a1a;
+}
+
+/* Rough implementation of the bracket style headers */
+.register-btn {
+    background: #5c1a1a;
+    border-color: transparent;
+}
+
+.register-btn:hover {
+    background: #7d2424;
+}
+
+.event-desc-right {
+    flex: 1;
+    position: relative;
+    animation: slideInFromRight 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.event-media-container {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.event-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 10s linear;
+}
+
+.event-media-container:hover .event-media {
+    transform: scale(1.1);
+}
+
+.media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(30deg, rgba(74, 28, 28, 0.2), transparent);
+    pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+    .event-desc-card {
+        padding: 30px;
+        margin: 20px;
+    }
+
+    .event-desc-title {
+        font-size: 2.5rem;
+    }
+
+    .event-desc-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+}

@@ -9,6 +9,7 @@ import Events from "./pages/events/Events";
 import Technical from "./pages/events/Technical";
 import NonTech from "./pages/events/NonTech";
 import Flagship from "./pages/events/Flagship";
+import EventDescription from "./components/EventDescription";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="events/technical" element={<Technical />} />
         <Route path="events/non-tech" element={<NonTech />} />
         <Route path="events/flagship" element={<Flagship />} />
+        <Route path="events/:category/:eventId" element={<EventDescription />} />
 
         <Route path="about" element={<About />} />
         <Route path="members" element={<Members />} />

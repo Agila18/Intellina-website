@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Event Card – Large 45° Cut</title>
+
+    <style>
+        /* ===== PAGE ===== */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #0d111a, #05070b);
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        /* ===== EVENT CARD ===== */
+        .event-card {
+            width: 320px;
+            height: 540px;
+
+            /* 🔥 BIGGER 45° CUT */
+            --cut: 140px;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.85)),
+                url("https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51") center / cover no-repeat;
+
+            clip-path: polygon(var(--cut) 0%,
+                    /* top edge after diagonal */
+                    100% 0%,
+                    /* top-right */
+                    100% 100%,
+                    /* bottom-right */
+                    0% 100%,
+                    /* bottom-left */
+                    0% var(--cut)
+                    /* left edge after diagonal */
+                );
+
+            border-radius: 18px;
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
+
+            color: #fff;
+            overflow: hidden;
+        }
+
+        /* ===== CONTENT ===== */
+        .card-content {
+            height: 100%;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* ===== TEXT ===== */
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #d6d6d6;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .prize-label {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .prize-amount {
+            margin-top: 4px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff2d6f;
+        }
+
+        /* ===== PLUS BUTTON ===== */
+        .plus-btn {
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 8px;
+            background: #0b0f14;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+
+            box-shadow:
+                inset 0 0 0 2px rgba(255, 255, 255, 0.25),
+                0 12px 24px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="event-card">
+        <div class="card-content">
+
+            <div>
+                <div class="title">FLIGHTFURY</div>
+                <div class="subtitle">
+                    Unleash The Skies: Where<br>
+                    Innovation Takes Flight
+                </div>
+            </div>
+
+            <div class="footer">
+                <div>
+                    <div class="prize-label">PRIZES WORTH</div>
+                    <div class="prize-amount">RS. 3,00,000 *</div>
+                </div>
+                <button class="plus-btn">+</button>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
