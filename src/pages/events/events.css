@@ -27,7 +27,7 @@ body {
   min-height: 100vh;
   background:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.9) 100%),
-    url('./images/events-bg.png');
+    url('./images/events-bg.jpeg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -112,14 +112,14 @@ body {
 
 .events-landing-title {
   font-family: 'Benguiat', serif;
-  font-size: clamp(3rem, 8vw, 5rem);
-  color: #ffffff;
+  font-size: clamp(3rem, 6vw, 5.3rem);
+  color: #d53a3a;
   text-shadow:
-    0 0 30px rgba(229, 9, 20, 1),
-    0 0 60px rgba(229, 9, 20, 0.8),
-    0 0 90px rgba(229, 9, 20, 0.5);
+    0 0 30px rgba(255, 9, 60, 1),
+    0 0 60px rgba(255, 9, 60, 0.8),
+    0 0 90px rgba(255, 9, 60, 0.5);
   font-weight: 900;
-  letter-spacing: 10px;
+  letter-spacing: 5.2px;
   text-transform: uppercase;
   margin-bottom: 20px;
   animation: titleGlow 3s ease-in-out infinite alternate;
@@ -128,11 +128,25 @@ body {
 }
 
 .events-landing-title:hover {
+    color:#eaa5a5;
   text-shadow:
-    0 0 50px rgba(229, 9, 20, 1),
-    0 0 100px rgba(229, 9, 20, 1),
-    0 0 150px rgba(255, 0, 0, 0.8);
+    0 0 50px rgb(231, 107, 117),
+    0 0 100px rgb(228, 85, 95),
+    0 0 150px rgba(251, 88, 88, 0.8);
   transform: scale(1.02);
+}
+.event-card {
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.65),
+    rgba(20,0,20,0.85)
+  );
+  backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255,0,60,0.6);
+  box-shadow:
+    0 0 15px rgba(255,0,60,0.3);border: 1.5px solid rgba(255,0,60,0.6);
+  box-shadow:
+    0 0 15px rgba(255,0,60,0.3);
 }
 
 @keyframes titleGlow {
@@ -150,15 +164,28 @@ body {
       0 0 120px rgba(229, 9, 20, 0.7);
   }
 }
+.event-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.8),
+    0 0 30px rgba(255,0,60,0.6);
+}
+.event-card h2 {
+  font-size: 2rem;
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 12px rgba(255,0,60,0.6);
+}
 
 .events-landing-subtitle {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+  color: rgba(211, 55, 55, 0.72);
   letter-spacing: 3.5px;
   text-transform: uppercase;
   margin-bottom: 70px;
   font-weight: 400;
-  text-shadow: 0 0 18px rgba(229, 9, 20, 0.35);
+  opacity:0.8;
+  font-weight:700;
+  text-shadow: 0 0 18px rgba(245, 46, 56, 0.35);
   transition: all 0.3s ease;
 }
 
@@ -620,4 +647,41 @@ body {
 
 .category-card:nth-child(3) {
   animation-delay: 0.3s;
+}
+/* This creates click ripples on cards and buttons */
+.category-card,
+.glass-event-card,
+.btn-stylized {
+  overflow: hidden;
+  position: relative;
+}
+
+/* At the end of events.css */
+::selection {
+  background: rgba(229, 9, 20, 0.4);
+  color: #ffffff;
+}
+
+/* At the end of events.css */
+*:focus-visible {
+  outline: none;
+  box-shadow: 
+    0 0 0 3px rgba(229, 9, 20, 0.4),
+    0 0 20px rgba(229, 9, 20, 0.3);
+}
+
+.events-container {
+  position: relative;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+  z-index: -1;
+  filter: blur(3px) grayscale(30%);
 }

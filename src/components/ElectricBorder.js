@@ -4,8 +4,8 @@ import './ElectricBorder.css';
 const ElectricBorder = ({
     children,
     color = '#ca0943ff', // Premium crimson default
-    speed = 0.7,      // Optimal speed per user snippet
-    chaos = 0.06,     // Optimal chaos per user snippet
+    speed = 0.15,      // Optimal speed per user snippet
+    chaos = 0.09,     // Optimal chaos per user snippet
     borderRadius = 33, // High-end radius per user snippet
     className,
     style,
@@ -151,10 +151,10 @@ const ElectricBorder = ({
         const octaves = 4;
         const lacunarity = 1.8;
         const gain = 0.5;
-        const amplitude = chaos;
-        const frequency = 12; /* Even more ripples for "movement" */
+        const amplitude = chaos * 1.0;
+        const frequency = 10; /* Even more ripples for "movement" */
         const baseFlatness = 0;
-        const displacement = 12; /* Subtle displacement to stay "along with the border" */
+        const displacement = 18; /* Subtle displacement to stay "along with the border" */
         const borderOffset = 15; /* Tighter offset to prevent going "outside" */
 
         const updateSize = () => {
@@ -201,17 +201,17 @@ const ElectricBorder = ({
             // 1. OUTER GLOWING LINE
             ctx.beginPath();
             ctx.strokeStyle = color;
-            ctx.lineWidth = 3; /* Clear but elegant line */
+            ctx.lineWidth = 7; /* Clear but elegant line */
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
-            ctx.shadowBlur = 15; /* Visible but not "faded" */
+            ctx.shadowBlur = 20; /* Visible but not "faded" */
             ctx.shadowColor = color;
 
             for (let i = 0; i <= sampleCount; i++) {
                 const progress = i / sampleCount;
                 const point = getRoundedRectPoint(progress, left, top, borderWidth, borderHeight, radius);
 
-                const noiseScale = 4; /* More "curvy", less "jagged" */
+                const noiseScale = 3; /* More "curvy", less "jagged" */
                 const xNoise = octavedNoise(progress * noiseScale, octaves, lacunarity, gain, amplitude, frequency, timeRef.current, 0, baseFlatness);
                 const yNoise = octavedNoise(progress * noiseScale, octaves, lacunarity, gain, amplitude, frequency, timeRef.current, 1, baseFlatness);
 

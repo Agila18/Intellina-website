@@ -5,10 +5,10 @@ import './EventCard.css';
 const EventCard = ({ name, tagline, prize, image, onClick, className }) => {
   return (
     <ElectricBorder
-      color="#bd0a22"
-      speed={0.75}
-      chaos={0.1}
-      borderRadius={30}
+      color="#bd0a23"
+      speed={0.77}
+      chaos={0.15}
+      borderRadius={31}
       className={`glass-event-card ${className || ''}`}
       onClick={onClick}
     >

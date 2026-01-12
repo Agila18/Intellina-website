@@ -9,45 +9,42 @@ const Technical = () => {
     {
       name: 'Paper Presentation',
       tagline: 'Present Your Research & Ideas To The World Of Innovation',
-      prize: '₹ 50,000 *',
+      prize: 'â‚¹ 50,000 *',
       image: '/assets/images/paperpresentation.jpg'
     },
     {
       name: 'Hackathon',
       tagline: 'Code Through The Night, Build The Future In 24 Hours',
-      prize: '₹ 1,00,000 *',
+      prize: 'â‚¹ 1,00,000 *',
       image: '/assets/images/Hackathon.jpeg'
-    },
-    {
-      name: 'Project Expo',
-      tagline: 'Showcase Your Innovation & Engineering Excellence',
-      prize: '₹ 75,000 *',
-      image: '/assets/images/ProjectExpo.jpeg'
-    },
-    {
-      name: 'Web Design',
-      tagline: 'Craft Digital Experiences That Captivate & Connect',
-      prize: '₹ 40,000 *',
-      image: '/assets/images/WebDesign.jpeg'
-    },
-    {
-      name: 'Poster Design',
-      tagline: 'Transform Ideas Into Visual Masterpieces',
-      prize: '₹ 25,000 *',
-      image: '/assets/images/events-bg.png'
-    },
-    {
-      name: 'Worst UI',
-      tagline: 'Create The Most Hilariously Terrible User Interface',
-      prize: '₹ 30,000 *',
-      image: '/assets/images/WorstUI.jpeg'
     },
     {
       name: 'RRR',
       tagline: 'React, Respond & Resolve: The Ultimate Tech Quiz',
-      prize: '₹ 35,000 *',
+      prize: 'â‚¹ 35,000 *',
       image: '/assets/images/RRR.jpeg'
+    },
+    {
+      name: 'Worst UI',
+      tagline: 'Create The Most Hilariously Terrible User Interface',
+      prize: 'â‚¹ 30,000 *',
+      image: '/assets/images/WorstUI.jpeg'
+    },
+     {
+      name: 'Web Design',
+      tagline: 'Craft Digital Experiences That Captivate & Connect',
+      prize: 'â‚¹ 40,000 *',
+      image: '/assets/images/WebDesign.jpeg'
+    },
+    {
+      name: 'Project Expo',
+      tagline: 'Showcase Your Innovation & Engineering Excellence',
+      prize: 'â‚¹ 75,000 *',
+      image: '/assets/images/ProjectExpo.jpeg'
     }
+   
+    
+    
   ];
 
   const handleEventClick = (eventName) => {
@@ -86,5 +83,7 @@ const Technical = () => {
     </div>
   );
 };
+
+
 
 export default Technical;

@@ -5,15 +5,36 @@ import './events.css';
 
 const Flagship = () => {
   const navigate = useNavigate();
-  const flagshipEvent = {
-    name: 'GPTATHON',
-    tagline: 'The Ultimate Challenge: Where Legends Are Made',
-    prize: 'Rs. 2,00,000 *',
-    image: '/assets/images/events-bg.png'
-  };
 
-  const handleClick = () => {
-    const eventId = flagshipEvent.name.toLowerCase().replace(/\s+/g, '-');
+  const flagshipEvents = [
+    {
+      name: 'GPTATHON',
+      tagline: 'The Ultimate Challenge: Where Legends Are Made',
+      prize: 'Rs. 2,00,000 *',
+      image: '/assets/images/GPTathon.jpeg'
+    },
+    {
+      name: 'Open Talent',
+      tagline: 'Showcase Your Skills, Dazzle The Crowd & Shine On Stage',
+      prize: 'Rs. 45,000 *',
+      image: '/assets/images/OpenTalent.jpeg'
+    },
+    {
+      name: 'Rapid Chess',
+      tagline: 'Think Fast, Move Faster & Checkmate Your Opponents',
+      prize: 'Rs. 30,000 *',
+      image: '/assets/images/RapidChess.jpeg'
+    },
+    {
+      name: 'E-sports',
+      tagline: 'Battle In Virtual Arenas, Prove Your Gaming Supremacy',
+      prize: 'Rs. 70,000 *',
+      image: '/assets/images/E-sports.jpeg'
+    }
+  ];
+
+  const handleClick = (eventName) => {
+    const eventId = eventName.toLowerCase().replace(/\s+/g, '-');
     navigate(`/events/flagship/${eventId}`);
   };
 
@@ -27,19 +48,40 @@ const Flagship = () => {
 
       <div className="event-list-container">
         <div className="event-list-header">
-          <h1 className="event-list-title">FLAGSHIP EVENT</h1>
+          <h1 className="event-list-title">FLAGSHIP EVENTS</h1>
           <p className="event-list-description">The Main Gate.</p>
         </div>
 
-        {/* Single Flagship Card - Centered and Larger */}
-        <div className="flagship-card-container">
-          <EventCard
-            name={flagshipEvent.name}
-            tagline={flagshipEvent.tagline}
-            prize={flagshipEvent.prize}
-            image={flagshipEvent.image}
-            onClick={handleClick}
-          />
+        {/* ðŸ”¥ 3-column grid */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '40px',
+            maxWidth: '1400px',
+            margin: '60px auto',
+            justifyItems: 'center'
+          }}
+        >
+          {flagshipEvents.map((event, index) => (
+            <div
+              key={index}
+              style={{
+                gridColumn:
+                  index === flagshipEvents.length - 1
+                    ? '2 / span 1' // â¬… centers last card
+                    : 'auto'
+              }}
+            >
+              <EventCard
+                name={event.name}
+                tagline={event.tagline}
+                prize={event.prize}
+                image={event.image}
+                onClick={() => handleClick(event.name)}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>

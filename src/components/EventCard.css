@@ -104,3 +104,11 @@
 .ash-particles {
   display: none !important;
 }
+
+/* This creates click ripples on cards and buttons */
+.category-card,
+.glass-event-card,
+.btn-stylized {
+  overflow: hidden;
+  position: relative;
+}
