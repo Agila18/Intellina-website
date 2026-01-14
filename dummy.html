@@ -1,138 +1,229 @@
-<!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Event Card – Large 45° Cut</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Event Card – Final</title>
 
-    <style>
-        /* ===== PAGE ===== */
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(circle at center, #0d111a, #05070b);
-            font-family: "Segoe UI", Arial, sans-serif;
-        }
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+}
 
-        /* ===== EVENT CARD ===== */
-        .event-card {
-            width: 320px;
-            height: 540px;
+/* WRAPPER */
+.card-wrapper {
+  position: relative;
+  width: 313px;
+  height: 462px;
+}
 
-            /* 🔥 BIGGER 45° CUT */
-            --cut: 140px;
+/* CARD */
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 3;
+  background: #000;
+  clip-path: path("M1 443.824V92.4971C1 87.9401 2.79117 83.5658 5.98718 80.3176L78.9268 6.18619C82.1912 2.86844 86.6508 1 91.3052 1H290.247C299.838 1 307.612 8.77488 307.612 18.3657V415.334C307.612 424.925 299.838 432.699 290.247 432.699H165.34C161.033 432.699 156.879 434.3 153.686 437.191L132.134 456.699C128.941 459.589 124.787 461.19 120.48 461.19H18.3657C8.77487 461.19 1 453.415 1 443.824Z");
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
 
-            background:
-                linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.85)),
-                url("https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51") center / cover no-repeat;
+/* MAIN IMAGE */
+.main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
 
-            clip-path: polygon(var(--cut) 0%,
-                    /* top edge after diagonal */
-                    100% 0%,
-                    /* top-right */
-                    100% 100%,
-                    /* bottom-right */
-                    0% 100%,
-                    /* bottom-left */
-                    0% var(--cut)
-                    /* left edge after diagonal */
-                );
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.9) 40%,
+    rgba(0,0,0,0.4) 65%,
+    rgba(0,0,0,0) 100%
+  );
+  z-index: 4;
+}
 
-            border-radius: 18px;
-            border: 1.5px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
+/* CONTENT */
+.card-content {
+  position: absolute;
+  bottom: 18px;
+  left: 22px;
+  right: 22px;
+  color: #fff;
+  z-index: 5;
 
-            color: #fff;
-            overflow: hidden;
-        }
+  display: flex;
+  flex-direction: column;
+}
 
-        /* ===== CONTENT ===== */
-        .card-content {
-            height: 100%;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
 
-        /* ===== TEXT ===== */
-        .title {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
+.card-content h3 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
 
-        .subtitle {
-            margin-top: 8px;
-            font-size: 14px;
-            line-height: 1.4;
-            color: #d6d6d6;
-        }
+.card-content p {
+  margin: 6px 0 18px;
+  font-size: 14px;
+  color: #dcdcdc;
+}
 
-        /* ===== FOOTER ===== */
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
+/* PRIZE */
+.prize {
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
 
-        .prize-label {
-            font-size: 12px;
-            opacity: 0.8;
-        }
+.prize span {
+  color: #ff2b2b;
+  font-weight: bold;
+  font-size: 18px;
+}
 
-        .prize-amount {
-            margin-top: 4px;
-            font-size: 18px;
-            font-weight: 700;
-            color: #ff2d6f;
-        }
+/* ACTION BUTTON */
+.action-btn {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  transform: translateY(-65%); /* 👈 moves + UP */
 
-        /* ===== PLUS BUTTON ===== */
-        .plus-btn {
-            width: 44px;
-            height: 44px;
-            border: none;
-            border-radius: 8px;
-            background: #0b0f14;
-            color: #fff;
-            font-size: 22px;
-            cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.6);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  transition: width 0.4s ease, background 0.4s ease;
+}
+.action-btn {
+  align-self: flex-end;
+  margin-top: -21px;
+  /* ✅ moves + button to right */
+}
 
-            box-shadow:
-                inset 0 0 0 2px rgba(255, 255, 255, 0.25),
-                0 12px 24px rgba(0, 0, 0, 0.6);
-        }
-    </style>
+/* PLUS ICON */
+.action-btn .plus {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+/* VIEW DETAILS TEXT */
+.action-btn .text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* HOVER BUTTON EFFECT */
+.card-wrapper:hover .action-btn {
+  width: 150px;
+  background: rgba(0,0,0,0.6);
+}
+
+.card-wrapper:hover .action-btn .plus {
+  opacity: 0;
+}
+
+.card-wrapper:hover .action-btn .text {
+  opacity: 1;
+}
+
+/* HOVER IMAGES (BEHIND CARD) */
+.notch-img {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;       
+  transition: opacity 0.45s ease;
+}
+
+
+.notch-img.top-left {
+  top: 0px;
+  left: -8px;
+  width: 85px;
+}
+
+.notch-img.bottom-right {
+  bottom: 8px;
+  right: 28px;
+  width: 150px;
+}
+
+/* HOVER EFFECTS */
+.card-wrapper:hover .card {
+  transform: none;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+}
+
+.card-wrapper:hover .main-img {
+  transform: scale(1.06);
+}
+
+.card-wrapper:hover .notch-img {
+  opacity: 1;
+}
+</style>
 </head>
 
 <body>
 
-    <div class="event-card">
-        <div class="card-content">
+<div class="card-wrapper">
 
-            <div>
-                <div class="title">FLIGHTFURY</div>
-                <div class="subtitle">
-                    Unleash The Skies: Where<br>
-                    Innovation Takes Flight
-                </div>
-            </div>
+  <!-- Hover notch images -->
+  <img class="notch-img top-left"
+       src="https://www.cognizance.org.in/Images/Client/EventLanding/my1.png">
 
-            <div class="footer">
-                <div>
-                    <div class="prize-label">PRIZES WORTH</div>
-                    <div class="prize-amount">RS. 3,00,000 *</div>
-                </div>
-                <button class="plus-btn">+</button>
-            </div>
+  <img class="notch-img bottom-right"
+       src="https://www.cognizance.org.in/assets/hover2-BePEsN0a.png">
 
-        </div>
+  <!-- Card -->
+  <div class="card">
+    <img class="main-img"
+         src="https://tse4.mm.bing.net/th/id/OIP.0S-LzLNmEJpVB1bMuOw4hAHaEo?pid=Api&P=0&h=180">
+
+    <div class="overlay"></div>
+
+    <div class="card-content">
+      <h3>ARMAGEDDON</h3>
+      <br/>
+
+      <div class="prize">
+        PRIZES WORTH<br>
+        <span>Rs. 3500 *</span>
+      </div>
+
+      <button class="action-btn">
+        <div class="plus">+</div>
+        <div class="text">VIEW DETAILS</div>
+      </button>
     </div>
+  </div>
+
+</div>
 
 </body>
-
 </html>
